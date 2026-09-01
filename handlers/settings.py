@@ -7,7 +7,7 @@ from aiogram.types import Message
 from keyboards.main import main_keyboard, settings_keyboard
 from states.settings import SettingsState
 
-from services.countdown import change_departure_date
+from services.users import set_departure_date
 
 router = Router()
 
@@ -32,21 +32,31 @@ async def change_date(message: Message, state: FSMContext):
 @router.message(SettingsState.waiting_for_date)
 async def process_date(message: Message, state: FSMContext):
     try:
-        date = datetime.strptime(message.text, '%d-%m-%y').date()
+        departure_date = datetime.strptime(
+            message.text,
+            "%d-%m-%y"
+        ).date()
     except ValueError:
         await message.answer(
-            'Неверный формат даты.\n'
-            'Введите дату в формате ДД-ММ-ГГ'
+            "❌ Неверный формат.\n"
+            "Введите дату в формате ДД-ММ-ГГ"
         )
         return
 
-    await message.answer(
-        f'Дата каникул установлена: {date.strftime("%d-%m-%Y")}',
-        reply_markup=main_keyboard
+    if message.from_user is None:
+        return
+
+    set_departure_date(
+        message.from_user.id,
+        departure_date.isoformat()
     )
 
     await state.clear()
-    change_departure_date(date)
+
+    await message.answer(
+        "✅ Дата успешно изменена!",
+        reply_markup=settings_keyboard
+    )
 
 
 @router.message(F.text == "◀️ Назад")

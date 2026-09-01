@@ -9,7 +9,7 @@ router = Router()
 
 @router.message(F.text == '🏠 Сколько осталось?')
 async def days_handler(message: Message):
-    days_left = get_days_left()
+    days_left = get_days_left(message.from_user.id)
 
     await message.answer(
         f"🏠 До дома осталось <b>{days_left}</b> дней."
