@@ -1,7 +1,7 @@
 from datetime import date, datetime
 from zoneinfo import ZoneInfo
 
-departure_date = date(2026, 11, 27)
+departure_date = date(2026, 12, 27)
 
 
 def get_days_left() -> int:

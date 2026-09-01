@@ -10,7 +10,10 @@ from config import TOKEN
 from handlers.start import router as start_router
 from handlers.countdown import router as countdown_router
 from handlers.settings import router as settings_router
+from handlers.subscribe import router as subscribe_router
+
 from services.users import init_db
+
 from apscheduler.schedulers.asyncio import AsyncIOScheduler
 
 from services.notifications import send_countdown
@@ -35,6 +38,7 @@ async def main():
     dp.include_router(start_router)
     dp.include_router(countdown_router)
     dp.include_router(settings_router)
+    dp.include_router(subscribe_router)
 
     scheduler = AsyncIOScheduler(timezone="Europe/Moscow")
 
@@ -42,7 +46,7 @@ async def main():
         send_countdown,
         "cron",
         hour=9,
-        minute=0,
+        minute=55,
         args=[bot]
     )
 
