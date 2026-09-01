@@ -13,4 +13,5 @@ async def days_handler(message: Message):
 
     await message.answer(
         f"🏠 До дома осталось <b>{days_left}</b> дней."
+        # f'Эдгар соси'
     )

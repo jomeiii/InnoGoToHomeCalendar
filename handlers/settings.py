@@ -7,7 +7,7 @@ from aiogram.types import Message
 from keyboards.main import main_keyboard, settings_keyboard
 from states.settings import SettingsState
 
-from services.countdown import change_departure_time
+from services.countdown import change_departure_date
 
 router = Router()
 
@@ -46,7 +46,7 @@ async def process_date(message: Message, state: FSMContext):
     )
 
     await state.clear()
-    change_departure_time(date)
+    change_departure_date(date)
 
 
 @router.message(F.text == "◀️ Назад")
