@@ -1,1 +1,5 @@
-data/token.json
+venv/
+__pycache__/
+*.pyc
+data/bot.db
+token.json
