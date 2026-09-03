@@ -55,7 +55,7 @@ async def process_date(message: Message, state: FSMContext):
 
     await message.answer(
         "✅ Дата успешно изменена!",
-        reply_markup=settings_keyboard
+        reply_markup=main_keyboard
     )
 
 

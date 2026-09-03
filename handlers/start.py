@@ -35,5 +35,7 @@ async def process_city(message: Message, state: FSMContext):
         city = message.text.strip()
     set_city(message.from_user.id, city.lower())
     await state.clear()
-    await message.answer(f"✅ Город сохранён: {city}",
+    await message.answer(f"✅ Город сохранён: {city}\n"
+                         f"Теперь напиши дату поездки в формате ДД-ММ-ГГ",
                          reply_markup=main_keyboard)
+    await state.set_state(SettingsState.waiting_for_date)
