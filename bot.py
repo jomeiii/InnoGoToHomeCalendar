@@ -11,7 +11,9 @@ from handlers.start import router as start_router
 from handlers.countdown import router as countdown_router
 from handlers.settings import router as settings_router
 from handlers.subscribe import router as subscribe_router
+from handlers.admin import router as admin_router
 
+from handlers.photos import router as photo_router
 from services.users import init_db
 
 from apscheduler.schedulers.asyncio import AsyncIOScheduler
@@ -39,6 +41,8 @@ async def main():
     dp.include_router(countdown_router)
     dp.include_router(settings_router)
     dp.include_router(subscribe_router)
+    dp.include_router(admin_router)
+    dp.include_router(photo_router)
 
     scheduler = AsyncIOScheduler(timezone="Europe/Moscow")
 

@@ -5,10 +5,7 @@ from typing import Optional
 DB_PATH = "data/bot.db"
 
 
-def add_photo(
-    city: str,
-    photo_file_id: str,
-    uploaded_by: int):
+def add_photo(city: str, photo_file_id: str, uploaded_by: int):
     with sqlite3.connect(DB_PATH) as connection:
         connection.execute(
             """
@@ -24,17 +21,18 @@ def add_photo(
         )
 
 
-def get_pending_photos():
+def get_pending_photo():
     with sqlite3.connect(DB_PATH) as connection:
         cursor = connection.execute(
             """
             SELECT id, city, photo_file_id, uploaded_by
             FROM city_photos
             WHERE status = 'pending'
+            LIMIT 1
             """
         )
 
-        return cursor.fetchall()
+        return cursor.fetchone()
 
 
 def approve_photo(photo_id: int):
@@ -79,3 +77,21 @@ def get_city_photo(city: str) -> Optional[str]:
             return None
 
         return random.choice(photos)[0]
+
+def get_city(user_id: int) -> Optional[str]:
+    with sqlite3.connect(DB_PATH) as connection:
+        cursor = connection.execute(
+            """
+            SELECT city
+            FROM users
+            WHERE user_id = ?
+            """,
+            (user_id,)
+        )
+
+        row = cursor.fetchone()
+
+        if row is None:
+            return None
+
+        return row[0]

@@ -1,10 +1,12 @@
 from aiogram.types import KeyboardButton, ReplyKeyboardMarkup
 
-
 main_keyboard = ReplyKeyboardMarkup(
     keyboard=[
         [
             KeyboardButton(text="🏠 Сколько осталось?")
+        ],
+        [
+            KeyboardButton(text="📷 Предложить фото")
         ],
         [
             KeyboardButton(text="🔔 Подписка"),
