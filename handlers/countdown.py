@@ -3,7 +3,7 @@ from typing import Optional
 from aiogram import F, Router, Bot
 from aiogram.types import Message
 
-from services.countdown import get_days_left
+from services.countdown import get_days_left, get_already_days_left, get_whole_days
 from services.photos import get_city_photo, get_city
 
 router = Router()
@@ -12,14 +12,19 @@ router = Router()
 async def send_countdown_message(
     bot: Bot,
     user_id: int,
-    message: Optional[Message] = None
-):
+    message: Optional[Message] = None):
     days_left = get_days_left(user_id)
+    days_already_left = get_already_days_left()
+    whole_days = get_whole_days(user_id)
     city = get_city(user_id)
     photo = get_city_photo(city)
+    precent = round(days_already_left / whole_days * 100, 2)
+    left_num = int(precent // 10)
+    right_num = 10 - left_num
 
-    text = f"🏠 До дома осталось <b>{days_left}</b> дней."
-
+    text = (f"🏠 До дома осталось <b>{days_left}</b> дней.\n"
+            f"😗 Дней прошло: <b>{days_already_left}</b>.\n")
+    text += "🟩" * left_num + "⬜" * right_num + f" {round(days_already_left / whole_days * 100, 2)}%"
     if photo is None:
         if message:
             await message.answer(text)

@@ -4,6 +4,7 @@ from datetime import date
 DB_PATH = "data/bot.db"
 
 DEFAULT_DEPARTURE_DATE = date(2026, 11, 27)
+START_EDUCATION_TIME = date(2026, 9, 1)
 
 
 def init_db():

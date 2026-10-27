@@ -6,11 +6,11 @@
   <component name="ChangeListManager">
     <list default="true" id="1cbbb31d-a5e0-4529-9c4d-53c0ef4dc0e1" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/bot.py" beforeDir="false" afterPath="$PROJECT_DIR$/bot.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/data/bot.db" beforeDir="false" afterPath="$PROJECT_DIR$/data/bot.db" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/handlers/countdown.py" beforeDir="false" afterPath="$PROJECT_DIR$/handlers/countdown.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/handlers/settings.py" beforeDir="false" afterPath="$PROJECT_DIR$/handlers/settings.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/handlers/start.py" beforeDir="false" afterPath="$PROJECT_DIR$/handlers/start.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/keyboards/main.py" beforeDir="false" afterPath="$PROJECT_DIR$/keyboards/main.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/services/countdown.py" beforeDir="false" afterPath="$PROJECT_DIR$/services/countdown.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/services/users.py" beforeDir="false" afterPath="$PROJECT_DIR$/services/users.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -52,6 +52,7 @@
     &quot;RunOnceActivity.typescript.service.memoryLimit.init&quot;: &quot;true&quot;,
     &quot;codeWithMe.voiceChat.enabledByDefault&quot;: &quot;false&quot;,
     &quot;git-widget-placeholder&quot;: &quot;main&quot;,
+    &quot;last_opened_file_path&quot;: &quot;/Users/stepandresvyannikov/Documents/Python/InnoGoToHomeCalendar&quot;,
     &quot;node.js.detected.package.jshint&quot;: &quot;true&quot;,
     &quot;node.js.selected.package.jshint&quot;: &quot;&quot;,
     &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
